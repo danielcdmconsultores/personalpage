@@ -1,0 +1,166 @@
+<html>
+<head>
+  <title>AWS EBS - The size of a volume can only be increased, not decreased. / Cómo reducir un EBS ...</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <img src="https://media.licdn.com/media/gcrc/dms/image/C4E12AQH-BISUo3P-Hw/article-cover_image-shrink_600_2000/0?e=1546473600&v=beta&t=mMQu5ONc8CJGniaiBxlVvdiXK2hT0j3GXJvhklhLmwk" alt="" title="" />
+    <h1><a href="https://www.linkedin.com/pulse/aws-ebs-size-volume-can-only-increased-decreased-c%C3%B3mo-pe%C3%B1a-silva">AWS EBS - The size of a volume can only be increased, not decreased. / Cómo reducir un EBS ...</a></h1>
+    <p class="created">Created on 2018-08-10 05:57</p>
+    <p class="published">Published on 2018-08-10 09:10</p>
+  <div><p>How can I decrease/shrink a Elastic Block Store? This post is about how to do it, in <strong>Windows 2012 Server</strong> image from 500Gb to 150Gb. Remember the EBS only can upgrade easily, but not decrease. (see the main picture)</p> 
+<p>/ <em>Como reducir/encoger el tamaño de un Elastic Block Store? Este artículo trata sobre como hacerlo, en una imagen con </em><strong><em>Windows 2012 Server</em></strong><em> con 500Gb hasta dejarlo en 150Gb. Recuerda que el EBS solamente es puede ampliar fácilmente pero no reducir. (ver la imagen principal)</em></p> 
+<p><strong><em>STEP 1 / PASO 1</em></strong></p> 
+<p>Take the last snapshot to get a good backup, first at all.</p> 
+<p>/ <em>Toma una última snapshot como backup antes de nada.</em></p> 
+<p><strong><em>STEP 2 / PASO 2</em></strong></p> 
+<p>Create a new empty EBS with the new size, in the same Availability Zone, in this example 150 GBytes. [Create Volumen]</p> 
+<p><em>/ Crear una nueva imagen EBS vacía, en la misma zona/región, con el tamaño deseado, en este ejemplo de 150 Gbytes. [Create Volumen]</em></p> 
+<div class="slate-resizable-image-embed slate-image-embed__resize-bleed"> 
+ <img data-media-urn="urn:li:digitalmediaAsset:C4E12AQHu6u52jh9ddg" src="https://media.licdn.com/dms/image/C4E12AQHu6u52jh9ddg/article-inline_image-shrink_1500_2232/0?e=1546473600&amp;v=beta&amp;t=Pe3wm32tJEDjteu2GsZJBC8n_UQpJdWfPpRebBOK2vo"> 
+</div> 
+<p><br></p> 
+<p><strong>STEP 3 / PASO 3</strong></p> 
+<p>Attach the new smaller ELB to your Windows Instance from [Actions / Attach Volume]</p> 
+<p>/ <em>Agrega el pequeño nuevo ELB a tu instancia Windows desde </em>[Actions / Attach Volume] <em>.</em></p> 
+<div class="slate-resizable-image-embed slate-image-embed__resize-middle"> 
+ <img data-media-urn="urn:li:digitalmediaAsset:C4E12AQFQZMiQZvEKDA" src="https://media.licdn.com/dms/image/C4E12AQFQZMiQZvEKDA/article-inline_image-shrink_1000_1488/0?e=1546473600&amp;v=beta&amp;t=-6EsinEhlKCi9EVbB0RIAaPkn-J0Oqjw9_Vt-Rx7ASk"> 
+</div> 
+<p><strong>STEP 4 / PASO 4</strong></p> 
+<p>Use a clone program to Clone it from 500 Gb to 150 Gb (Of course you should not have more than 150 GB in data). For me, the best program to do it is <a href="https://www.miray.de/products/applications/hdclone.html" target="_blank">HDClone</a> from <a href="https://www.miray.de/company/index.html" target="_blank">Miray</a> (german company). We use <a href="https://www.miray.de/products/applications/hdclone/professional-edition.html" target="_blank">Professional Edition</a> v8 &amp; It's has never failed me (adjusts all the values of the MBR, partition table, automatically). It has taken about 30 minutes to clone 100Gbytes</p> 
+<p>/ <em>Usa un programa para clonarlo desde el de 500Gb al de 150Gb. (Por supuesto no debe tener ocupados con datos más de 150GB.). Para mi, el mejor programa para realizarlo es </em><a href="https://www.miray.de/products/applications/hdclone.html" target="_blank"><em>HDClone</em></a><em> de </em><a href="https://www.miray.de/company/index.html" target="_blank"><em>Miray</em></a><em> (Empresa alemana). Nosotros usamos </em><a href="https://www.miray.de/products/applications/hdclone/professional-edition.html" target="_blank"><em>Professional Edition</em></a> v8<em> y nunca me ha fallado (ajusta todos los valores de la MBR, tabla de particiones, de forma automática). Ha tardado unos 30 minutos en copiar 100 Gbytes de datos.</em></p> 
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"> 
+ <img data-media-urn="urn:li:digitalmediaAsset:C4E12AQGbKQZeBTuuwQ" src="https://media.licdn.com/dms/image/C4E12AQGbKQZeBTuuwQ/article-inline_image-shrink_1000_1488/0?e=1546473600&amp;v=beta&amp;t=s1AassnWcBYSYyg6vxnWEUAEATMl8OeDBfUUCzktorw"> 
+</div> 
+<p><strong>STEP 5 / PASO 5</strong></p> 
+<p>Stop the instance, Detach both ELBs. <strong>TIP!:</strong> Attach the smaller ELB with Device /dev/sda1</p> 
+<p>/ <em>Para la Instancia, "quita" los dos ELBs. </em><strong><em>Ojo!:</em></strong><em> Adjunta el menor ELB a la Instancia como Device /dev/sda1</em></p> 
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"> 
+ <img data-media-urn="urn:li:digitalmediaAsset:C4E12AQGI-2YXwNLejQ" src="https://media.licdn.com/dms/image/C4E12AQGI-2YXwNLejQ/article-inline_image-shrink_1000_1488/0?e=1546473600&amp;v=beta&amp;t=XZ8u3f3y3shDfPpQekMKRH8ezksvyVEw3Xby775h8kw"> 
+</div> 
+<p><strong>STEP 6 / PASO 6</strong></p> 
+<p>Start the Windows Server instance and test all services &amp; apps, sometimes some programs detect the new ELB. And remmember create new procedure of backups/snapshots of the new ELB.</p> 
+<p>/<em> Inicia la instancia de Windows y prueba sus servicios y aplicaciones, Algunas veces algunos programas detectan el cambio de tamaño. Recuerda modificar tus escripts para snapshots al nuevo ELB.</em></p> 
+<p><strong>WHY? - ¿POR QUE?</strong></p> 
+<ul> 
+ <li>Reduce the Bill / <em>Reducción de costes importante, ya que el precio del GB en ELB es valioso</em></li> 
+ <li>Reduce time to do snapshots / <em>Reducción del tiempo en crear snapshots.</em></li> 
+</ul> 
+<p><strong>LINKS / Links de Interes</strong></p> 
+<p><a href="https://cloudacademy.com/blog/amazon-ebs-shink-volume/" target="_blank">https://cloudacademy.com/blog/amazon-ebs-shink-volume/</a></p></div>
+</body>
+</html>

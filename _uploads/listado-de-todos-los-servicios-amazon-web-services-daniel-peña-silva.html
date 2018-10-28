@@ -1,0 +1,310 @@
+<html>
+<head>
+  <title>Listado de todos los Servicios de AWS (actualizado 23 de octubre 2018)</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <img src="https://media.licdn.com/media/gcrc/dms/image/C4E12AQE2x4jexbSHkg/article-cover_image-shrink_720_1280/0?e=1546473600&v=beta&t=S3qiGKVylQF0143VTMgkPfXstAPA5aKnfTPybbJ576A" alt="" title="" />
+    <h1><a href="https://www.linkedin.com/pulse/listado-de-todos-los-servicios-amazon-web-services-daniel-pe%C3%B1a-silva">Listado de todos los Servicios de AWS (actualizado 23 de octubre 2018)</a></h1>
+    <p class="created">Created on 2017-09-07 07:11</p>
+    <p class="published">Published on 2017-09-17 09:36</p>
+  <div><p>Siempre he querido tener un listado de <strong>TODOS</strong> los servicios de <strong>AWS</strong> y una breve descripción (párrafo) + <strong>vídeo descriptivo</strong>, a modo de recuerdo o "chuleta". Por favor si lo encuentras de utilidad, haz mención y entre tod@s vamos ampliando este listado.</p> 
+<blockquote>
+  En solo 30 minutos entenderás 
+ <strong>todos</strong> los servicios que ofrece la nube pública más popular, AWS. 
+</blockquote> 
+<h2>Computación (máquina)</h2> 
+<ul> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1" target="_blank">EC2</a>: Genera máquinas virtuales elásticas y escalables. De computo general, hasta 12 Tera Bytes RAM, o complejas con GPUs, alto rendimiento... [<a href="https://youtu.be/TsRBftzZsQo" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://lightsail.aws.amazon.com/ls/webapp/home" target="_blank">Lightsail</a>: Las máquinas virtuales básicas (Linux y Windows), para competir en precio, con menos prestaciones, no convertibles en EC2 (de momento). Ahora también MySQL multi-az para desacoplar la aplicación.[<a href="https://youtu.be/REh4caTWSOI" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1" target="_blank">Lambda</a>: Las funciones en serverless (sin servidor), pago por uso en llamadas a las funciones (<a href="http://docs.aws.amazon.com/lambda/latest/dg/authoring-function-in-nodejs.html" target="_blank">Node.js</a>,&nbsp;<a href="http://docs.aws.amazon.com/lambda/latest/dg/python-lambda.html" target="_blank">Python</a>,&nbsp;<a href="http://docs.aws.amazon.com/lambda/latest/dg/java-lambda.html" target="_blank">Java</a>,&nbsp;<a href="http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html" target="_blank">C#</a>&nbsp;y&nbsp;<a href="https://docs.aws.amazon.com/lambda/latest/dg/go-programming-model.html" target="_blank">Go</a>.).[<a href="https://youtu.be/eOBq__h4OJ4" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/batch/home?region=eu-west-1" target="_blank">Batch</a>: Procesamiento por lotes totalmente administrado para cualquier escala.[<a href="https://youtu.be/T4aAWrGHmxQ" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/elasticbeanstalk/home?region=eu-west-1" target="_blank">Elastic Beanstalk</a>:&nbsp;Para implementar y escalar servicios y aplicaciones web desarrollados con Java, NET, PHP, Node.js, Python, Ruby, Go y Docker en servidores familiares como Apache, Nginx, Passenger e IIS. (genera EC2).[<a href="https://youtu.be/dvmssHHBnII" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/eks/?p=tile" target="_blank">Amazon EKS</a>: Amazon Elastic Container Service for Kubernetes es un servicio administrado que le permite ejecutar fácilmente Kubernetes en AWS sin necesidad de instalar ni usar sus propios clústeres de Kubernetes. [<a href="https://youtu.be/WHTejF3W0s4" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.conhttps://aws.amazon.com/es/fargate/?p=tilesole.aws.amazon.com/elasticbeanstalk/home?region=eu-west-1" target="_blank">Fargate</a>:&nbsp;Te permite ejecutar&nbsp;contenedores&nbsp;sin tener que administrar servidores ni clústeres. Ya no tendrá que aprovisionar, configurar ni escalar clústeres de máquinas virtuales para ejecutar los contenedores[<a href="https://youtu.be/0SceSgOTyrw" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/ecs/home?region=eu-west-1" target="_blank">Elastic Container Service</a>: Servicio de administrador de contenedores compatible con Dockers. [<a href="https://youtu.be/kzC4RlSxYno" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Almacenamiento</h2> 
+<ul> 
+ <li><a href="https://s3.console.aws.amazon.com/s3/home?region=eu-west-1" target="_blank">S3</a>: Almacenamiento de objetos con 99.999999999% durability (para guardar ficheros, backups, imágenes, etc) (no confundir con un dropbox, aunque tiene similitudes). [<a href="https://youtu.be/rKpKHulqYOQ" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/efs/home?region=eu-west-1" target="_blank">EBS</a>: Almacenamiento a nivel de bloque de Sistema Operativo. [<a href="https://youtu.be/DKftR47Ljvw" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/efs/?nc2=h_m1" target="_blank">EFS</a>: Almacenamiento en red para instancias EC2, como un NAS-iscsi. [<a href="https://youtu.be/6ZIPBC78U0s" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/glacier/home?region=eu-west-1" target="_blank">Glacier</a>: Para backups a largo plazo, duradero y a bajo coste. [<a href="https://youtu.be/PUVX84xbwCI" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/storagegateway/home?region=eu-west-1" target="_blank">Storage Gateway</a>: Conector de tu NAS on-premise al S3.[<a href="https://youtu.be/DPyc0q4MYsM" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/snowball/?p=tile" target="_blank">Snowball</a>: Solución de transporte de datos (Hardware) a escala de petabytes que utiliza dispositivos diseñados para ser seguros y para transferir grandes volúmenes de datos hacia y desde la nube de AWS [<a href="https://youtu.be/9uc2DSZ1wL8" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/snowmobile/?p=tile" target="_blank">Snowmobile</a>: Snowball pero a lo bestia (a escala de exabytes), hasta 100 PB en un contenedor para transportarlo en un camión. [<a href="https://youtu.be/8vQmTZTq7nw" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Bases de datos</h2> 
+<ul> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/rds/home?region=eu-west-1" target="_blank">RDS</a>: Las Bases de datos relacionales administradas, MsSQL, MySQL, MariaDB, PostgresSQL y escalable, etc...[<a href="https://youtu.be/yjH10T3Miag" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/rds/aurora/?nc2=h_m1" target="_blank">Aurora</a>: Base de datos Relacional, compatible MySQL, PostgresSQL. Aurora es hasta cinco veces más rápida que las bases de datos de&nbsp;<a href="https://aws.amazon.com/es/rds/mysql/what-is-mysql/" target="_blank">MySQL</a>&nbsp;estándar y tres veces más rápida que las bases de datos de PostgreSQL estándar. [<a href="https://youtu.be/_oWa4fWAqTY" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1" target="_blank">DynamoDB</a>: Base de datos no relacional (no-sql), super-rápida y auto-escalable, con un 99.999 % SLA [<a href="https://youtu.be/w-QLCWHj5XM" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/elasticache/home?region=eu-west-1" target="_blank">ElastiCache</a>: Caches o datastores en memoria. Compatible con Redis y Memcached.[<a href="https://youtu.be/8eD2eNljURE" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/redshift/home?region=eu-west-1" target="_blank">Amazon Redshift</a>: Para almacenamiento de datos para BI (permite ejecutar consultas complejas en petabytes).[<a href="https://youtu.be/AUvn49gey8Y" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/neptune/?p=tile" target="_blank">Neptune</a>: Servicio de base de datos de gráficos rápido, de confianza y totalmente administrado que le permite crear y ejecutar fácilmente aplicaciones que funcionen con conjuntos de datos muy conectados [<a href="https://youtu.be/Rl6UwE7kLio" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Red y contenido</h2> 
+<ul> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/vpc/home?region=eu-west-1" target="_blank">VPC</a>: Red Aislada dentro de tu entorno en la nube. [<a href="https://youtu.be/jcyZmj6Ywh4" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/cloudfront/home?region=eu-west-1" target="_blank">CloudFront</a>: El CDN de amazon (con 106 ubicaciones de borde). [<a href="https://youtu.be/dV5qOxwAJlU" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/directconnect/home?region=eu-west-1" target="_blank">Direct Connect</a>: Conexión de red dedicada con amazon a su red/ubicación on-premise. [<a href="https://youtu.be/9WdCC8u5fL0" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/route53/home?region=eu-west-1" target="_blank">Route 53</a>: Un potente gestor DNS. [<a href="https://youtu.be/Nm69KMWwH7s" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/api-gateway/" target="_blank">API Gateway</a>: Facilita a los desarrolladores la creación, la publicación, el mantenimiento, la monitorización y la protección de API a cualquier escala [<a href="https://youtu.be/8U4RRw3PwGw" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/about-aws/whats-new/2017/11/introducing-aws-privatelink-for-aws-services/" target="_blank">AWS PrivateLink</a>: Permite conectar VPC directamente sin pasar por Internet y válido para que on-premise use servicios de AWS de forma privada [<a href="https://youtu.be/8WhLO4y5-J0" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Migración</h2> 
+<ul> 
+ <li><a href="https://console.aws.amazon.com/migrationhub/home?region=eu-west-1" target="_blank">AWS Migration Hub</a>: Ofrece una ubicación única para realizar el seguimiento de los avances de las migraciones de aplicaciones en varias soluciones de AWS y otras empresas del sector. [<a href="https://youtu.be/2VF9Hs9q7HY" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/discovery/home?region=eu-west-1" target="_blank">Application Discovery Service</a>: Ayuda a los clientes empresariales a planificar proyectos de migración al recopilar información sobre sus centros de datos on-premise. [<a href="https://youtu.be/ciXV91CXoc0" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/dms/home?region=eu-west-1" target="_blank">Database Migration Service</a>:&nbsp;Ayuda a migrar las bases de datos a AWS de manera rápida y segura. [<a href="https://youtu.be/YdPjmU8au-s" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/servermigration/home?region=eu-west-1" target="_blank">Server Migration Service</a>: Servicio sin agente que le permite migrar de forma más rápida y sencilla miles de cargas de trabajo on-premise a AWS. Con AWS SMS, puede automatizar, programar y monitorizar replicaciones incrementales de volúmenes de servidores en vivo, lo que facilita la coordinación de migraciones de servidores a gran escala. [<a href="https://youtu.be/vrwy-G8h8SU" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Herramientas de desarrollo</h2> 
+<ul> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/codestar/home?region=eu-west-1" target="_blank">CodeStar</a>: Facilita la configuración de toda la cadena de herramientas de desarrollo y entrega continua para codificar, compilar, probar e implementar el código de la aplicación. Para comenzar un proyecto, puede elegir entre varias plantillas de Amazon EC2, AWS Lambda y AWS Elastic Beanstalk. [<a href="https://youtu.be/pIaB7wSSReU" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/codecommit/home?region=eu-west-1" target="_blank">CodeCommit</a>:&nbsp;Servicio de control de código fuente totalmente administrado que facilita a las empresas el hospedaje de repositorios Git privados, seguros y altamente escalables. [<a href="https://youtu.be/46PRLMW8otg" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/codebuild/home?region=eu-west-1" target="_blank">CodeBuild</a>: Es un servicio de creación totalmente administrado que crea código fuente, ejecuta pruebas y produce paquetes de software listos para su implementación. No es necesario aprovisionar, administrar y escalar sus propios servidores de creación.[<a href="https://youtu.be/E6EBg46vvu0" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/codedeploy/home?region=eu-west-1" target="_blank">CodeDeploy</a>:&nbsp;Servicio que automatiza las implementaciones de código en cualquier instancia, incluidas las instancias de Amazon EC2 y aquellas ejecutadas on-premise.[<a href="https://youtu.be/xt8QA2HccNI" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/codepipeline/home?region=eu-west-1" target="_blank">CodePipeline</a>: Es un servicio de&nbsp;integración continua&nbsp;y&nbsp;entrega continua&nbsp;para realizar actualizaciones de aplicaciones e infraestructura rápidas y de confianza. CodePipeline compila, prueba e implementa el código cada vez que se produce un cambio en este, de acuerdo con los modelos de procesamiento de la publicación que defina. [<a href="https://youtu.be/YxcIj_SLflw" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/xray/home?region=eu-west-1" target="_blank">X-Ray</a>: Ayuda a desarrolladores a analizar y depurar aplicaciones distribuidas de producción, como las creadas con una arquitectura de micro-servicios&nbsp;[<a href="https://youtu.be/Td7ZSS8p6DA" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/cloud9/home/product" target="_blank">Cloud9</a>: Un IDE en la nube, permite escribir código, ejecutar y depurar solamente con un navegador, incluye un terminal con las CLI todo pre-configurado. [<a href="https://youtu.be/UX0mqLVlauk" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/mobile/" target="_blank">SDK</a>: Completo set de juegos que ayuda a que su aplicación obtenga acceso directo a los servicios de Amazon, incluidos AWS Lambda, S3, DynamoDB, entre otros. Los SDK para dispositivos móviles son compatibles con iOS, Android, Web, React Native, Unity y Xamarin. [<a href="https://youtu.be/kJap3OTbFuY" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.github.io/aws-amplify/" target="_blank">Amplify</a>: Una librería Java Script para desarrolladores de aplicaciones para usar los Servicios Cloud [<a href="https://www.youtube.com/watch?v=vAjf3lyjf8c" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>Herramientas de Administración</h2> 
+<ul> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/cloudwatch/home?region=eu-west-1" target="_blank">CloudWatch</a>: Monitoriza los servicios de AWS con métricas, disparadores, etc... [<a href="https://youtu.be/SrjNIiaHZHE" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/cli/?nc2=h_m1" target="_blank">CLI:</a> Interface de línea de comandos para Mac, linux, Windows, para poder controlar varios servicios de AWS desde la línea de comando y automatizarlos mediante secuencias de comandos. [<a href="https://youtu.be/FwbavIglhis" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1" target="_blank">CloudFormation</a>: Creador de mundos de AWS todo con scripts (yaml y json). [<a href="https://youtu.be/b-gwhQ6GPFQ" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/cloudtrail/home?region=eu-west-1" target="_blank">CloudTrail</a>: Permite realizar regulaciones y auditorías operativas, de riesgo/seguridad y conformidad en su cuenta de AWS. [<a href="https://youtu.be/t0e-mz_I2OU" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/config/home?region=eu-west-1" target="_blank">Config</a>: Permite examinar, auditar y evaluar las configuraciones de sus recursos de AWS. [<a href="https://youtu.be/Nb33YRAPHYs" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/opsworks/landing/home?region=eu-west-1" target="_blank">OpsWorks</a>: Administración de configuraciones que utiliza Chef, una plataforma de automatización que trata las configuraciones de servidor como código. [<a href="https://youtu.be/BhNfhHXvhhc" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/catalog/home?region=eu-west-1" target="_blank">Service Catalog</a>: Permite a las organizaciones crear y administrar catálogos de servicios de TI aprobados para su uso en AWS. Incluye todo lo relacionado con imágenes, servidores, software y bases de datos de máquinas virtuales para completar las arquitecturas de aplicaciones multi-nivel. [<a href="https://youtu.be/rve_WACMeg4" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/trustedadvisor/home?region=eu-west-1" target="_blank">Trusted Advisor</a>: Ayuda a reducir los costos, incrementar el desempeño y mejorar la seguridad al optimizar el entorno de AWS, proporciona asesoramiento a tiempo real para ayudarle a aprovisionar los recursos de acuerdo con las prácticas recomendadas de AWS. [<a href="https://youtu.be/4XS9XR1E8dI" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/systems-manager/" target="_blank">Systems Manager</a>: Recabe información operativa e implemente acciones en recursos: Unifica, agrupa y automatiza tareas operativas de los recursos. Permite conectarse a las instancias (Windows/Linux) sin abrir puertos ni claves .PEM (Session Manager) [<a href="https://youtu.be/zwS8lssaY_k" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/premiumsupport/phd/?p=tile" target="_blank">Personal Health Dashboard</a> proporciona alertas y orientación para solucionar problemas en caso de que AWS esté experimentando eventos que puedan afectarle [<a href="https://youtu.be/aVZ0r8s47Tg" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>Servicios Multi-media</h2> 
+<ul> 
+ <li><a href="https://aws.amazon.com/es/elastictranscoder/" target="_blank">Elastic Transcoder</a>: Realiza tareas de trans-codificación de contenido. [<a href="https://youtu.be/wSYHdt1TJVQ" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/kinesis/video-streams/" target="_blank">Kinesis Video Streams</a>: Aprendizaje automático y tareas analíticas [<a href="https://www.youtube.com/watch?v=STEMa3t5NOQ&amp;feature=youtu.be" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/mediaconvert/" target="_blank">Elemental MediaConvert</a>: Trans-codificador de vídeos basado en archivos con características de emisión. [<a href="https://www.youtube.com/user/elementaltech" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/medialive/" target="_blank">Elemental MediaLive</a>: Procesamiento de vídeo en directo para emisión [<a href="https://www.youtube.com/user/elementaltech" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/mediapackage/" target="_blank">Elemental MediaPackage</a>: Prepare y proteja fácilmente vídeos para entrega bajo demanda y en directo. [<a href="https://www.youtube.com/user/elementaltech" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/mediastore/" target="_blank">Elemental MediaStore</a>: Ofrece nivel de desempeño, consistencia y baja latencia para entrega de vídeo. [<a href="https://www.youtube.com/user/elementaltech" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/mediatailor/" target="_blank">Elemental MediaTailor</a>: Inserta anuncios focalizados individualmente en sus transmisiones de vídeo. [<a href="https://www.youtube.com/user/elementaltech" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>Identidad, Seguridad y Conformidad.</h2> 
+<ul> 
+ <li><a href="https://console.aws.amazon.com/iam/home?region=eu-west-1" target="_blank">IAM</a>: Controle el acceso de forma segura a los servicios y recursos de AWS de sus usuarios. [<a href="https://youtu.be/Ul6FW4UANGc" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/inspector/home?region=eu-west-1" target="_blank">Inspector</a>: Servicio de evaluación de seguridad automatizado para ayudar a mejorar la seguridad y la conformidad de las aplicaciones implementadas en AWS. [<a href="https://youtu.be/xxvrmBPbNPs" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/acm/home?region=eu-west-1" target="_blank">Certificate Manager</a>: Permite aprovisionar, administrar e implementar con facilidad certificados de capa de conexión segura/seguridad de la capa de transporte (SSL/TLS) para su uso con servicios de AWS. [<a href="https://youtu.be/JbQbwum196g" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/directoryservice/home?region=eu-west-1" target="_blank">Directory Service</a>: Microsoft AD - Active Directory administrado en la nube de AWS. Migre con facilidad aplicaciones y cargas de trabajo compatibles con el directorio, disponible también como (Standard Edition)[<a href="https://youtu.be/XNTsmRe8k7Q" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/waf/home?region=eu-west-1" target="_blank">WAF &amp; Shield</a>: Un cortafuegos de aplicación web que permite monitorizar accesos a tu CloudFront o evitar DDoS.[<a href="https://youtu.be/W01f7g7slHw" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/artifact/home?region=eu-west-1" target="_blank">Artifact</a>: Portal de auditoría y conformidad para el acceso bajo demanda, permite descargar los informes de conformidad (pdf) de AWS y administrar acuerdos seleccionados.[<a href="https://youtu.be/O307zdIOmWo" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://us-east-1.redirection.macie.aws.amazon.com/" target="_blank">Amazon Macie</a>: Es un servicio de seguridad que utiliza el aprendizaje automático para descubrir, clasificar y proteger datos confidenciales automáticamente en AWS. Reconoce los datos confidenciales, como la información personalmente identificable (PII) o la propiedad intelectual y le proporciona paneles de control y alertas que aportan visibilidad acerca de cómo se están trasladando estos datos o se está accediendo a ellos.[<a href="https://youtu.be/3xzhW-2aD4s" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/cloudhsm/home?region=eu-west-1" target="_blank">CloudHSM</a>: Es un módulo de seguridad de hardware (HSM) basado en la nube que le permite generar con facilidad y usar sus propias claves de cifrado en la nube de AWS. [<a href="https://youtu.be/qW9y5lBig_8" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/guardduty/home?region=us-east-1#/onboard" target="_blank">GuardDuty</a>: Es un servicio de detección de amenazas administradas que monitorea continuamente el comportamiento malicioso o no autorizado para proteger sus cuentas y cargas de trabajo de AWS. Supervisa la actividad, como llamadas API inusuales o implementaciones potencialmente no autorizadas que indican un posible compromiso de la cuenta. GuardDuty también detecta instancias potencialmente comprometidas. [<a href="https://youtu.be/ocZjGirQT9A" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/cognito/home?region=eu-west-1" target="_blank">Cognito</a>: Permite agregar el registro y el inicio de sesión de forma sencilla a sus aplicaciones web y móviles. También tiene las opciones de autenticar a los usuarios a través de proveedores de identidad social, como Facebook, Twitter o Amazon, con soluciones de identidad SAML. [<a href="https://youtu.be/abTy-Yyo6lI" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/single-sign-on/" target="_blank">Single Sign-on:</a> Administre de maneda centralizada el acceso con inicio de sesion único a varias aplicaciones empresariales de AWS. [<a href="https://youtu.be/Xyhq9BZuG_g" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Analítica</h2> 
+<ul> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/athena/home?region=eu-west-1" target="_blank">Athena</a>: Es un servicio de consultas interactivo que facilita el análisis de datos en Amazon S3 con SQL estándar. Athena no tiene servidor, de manera que no es necesario administrar infraestructura y solo paga por las consultas que ejecuta.[<a href="https://youtu.be/-nnidKX_LMk" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/elasticmapreduce/home?region=eu-west-1" target="_blank">EMR</a>: Proporciona un marco Hadoop hospedado que facilita, acelera y rentabiliza procesar enormes cantidades de datos en instancias Amazon EC2 dinámicamente escalables. [<a href="https://youtu.be/S6Ja55n-o0M" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/cloudsearch/home?region=eu-west-1" target="_blank">CloudSearch</a>: servicio administrado en la nube de AWS que facilita la configuración, la administración y el escalado rentables de una solución de búsqueda para su sitio web o aplicación. [<a href="https://youtu.be/EQYy2hZnR38" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/es/home?region=eu-west-1" target="_blank">Elasticsearch Service</a>: Facilita la implementación, el uso y el escalado de Elasticsearch para el análisis de logs, la búsqueda de texto completo, la monitorización de aplicaciones y mucho más.[<a href="https://youtu.be/Nf7kUikeVNM" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/kinesis/home?region=eu-west-1" target="_blank">Kinesis</a>: Facilita la recopilación, el procesamiento y el análisis de datos de streaming en tiempo real para obtener conocimiento de manera oportuna y reaccionar rápidamente ante información nueva. [<a href="https://youtu.be/MbEfiX4sMXc" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/datapipeline/home?region=eu-west-1" target="_blank">Data Pipeline</a>: Servicio web pensado para ayudarle a procesar datos y a transferirlos, de manera fiable y a intervalos definidos, entre diferentes servicios de almacenamiento e informática de AWS, así como entre orígenes de datos on-premise. [<a href="https://youtu.be/ziorTgT0Zac" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://quicksight.aws.amazon.com/" target="_blank">QuickSight</a>: El rápido y fácil BI (Business Intelligence) de amazon, a una décima parte del precio. [<a href="https://youtu.be/Tj0gW4XI6vU" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/glue/home?region=eu-west-1" target="_blank">AWS Glue</a>: Servicio de extracción, transformación y carga (ETL) totalmente administrado que facilita a los clientes la preparación y carga de sus datos para su análisis. [<a href="https://youtu.be/qgWMfNSN9f4" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Inteligencia Artificial - Machine Learning</h2> 
+<ul> 
+ <li><a href="https://console.aws.amazon.com/lex/home?region=eu-west-1" target="_blank">Lex</a>:&nbsp;Servicio para crear interfaces de conversación en cualquier aplicación con voz y texto. [<a href="https://youtu.be/27kYKr3XZfc" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/polly/home?region=eu-west-1" target="_blank">Amazon Polly</a>: Convierte texto en habla realista, lo que permite crear aplicaciones y categorías totalmente nuevas de productos con esta capacidad. [<a href="https://youtu.be/zjMqimHis3U" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/rekognition/home?region=eu-west-1" target="_blank">Rekognition</a>: Facilita la agregación de análisis de imágenes a sus aplicaciones. Puede detectar objetos, escenas, rostros; reconocer a famosos; e identificar contenido inapropiado en las imágenes. [<a href="https://youtu.be/b6gN9jCmq3w" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/tensorflow/?nc1=h_ls" target="_blank">Tensorflow</a>:&nbsp;Se ha convertido en una opción popular para la investigación de aprendizaje profundo y desarrollo de aplicaciones, en particular en áreas como la visión por computadora, la comprensión del lenguaje natural y la traducción del habla. [<a href="https://youtu.be/4Xz0rDTGB-A" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/machinelearning/home?region=eu-west-1" target="_blank">Machine Learning</a>:&nbsp;Facilita a desarrolladores de todos los niveles de habilidad el uso de la tecnología de aprendizaje automático. Amazon Machine Learning proporciona asistentes y herramientas de visualización que le guían a lo largo del proceso de creación de modelos de aprendizaje automático (ML) sin tener que aprender complicados algoritmos y tecnología de ML [<a href="https://youtu.be/PAHU8tPA7xs" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/translate/" target="_blank">Amazon Translate</a>: Permite traducir grandes volúmenes grandes de texto de manera sencilla y eficiente, así como localizar sitios web y aplicaciones para los usuarios internacionales.&nbsp;[<a href="https://youtu.be/k9rBj6IP9-M" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/transcribe/" target="_blank">Amazon Transcribe</a>: Reconocimiento de voz automático (ASR) y por supuesto con API [<a href="https://youtu.be/oVo-IKiM8Xk" target="_blank">VIDEO</a>].</li> 
+ <li><a href="https://aws.amazon.com/es/sagemaker/" target="_blank">SageMaker</a> : Cree, entrene e implemente modelos de aprendizaje automático a escala [<a href="https://youtu.be/lM4zhNO5Rbg" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/deeplens/" target="_blank">DeepLens</a>: La primera cámara de vídeo (Hardware) con aprendizaje profundo para programadores. Si quieres verla funcionando en Bilbao, llámame. [<a href="https://youtu.be/RhEVld4GwzU" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/comprehend/" target="_blank">Amazon Comprehend</a>: Servicio de procesamiento de lenguaje natural (NLP) que usa el aprendizaje automático para encontrar información y relaciones en el texto [<a href="https://youtu.be/m1z6GOezK1E" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/mxnet/?nc2=h_m1" target="_blank">Apache MXNet</a>&nbsp;es un marco rápido de inferencia y entrenamiento de escala ajustable con un API concisa y fácil de usar para aprendizaje automático. [<a href="https://youtu.be/iLqEhCqCQ70" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Internet de las cosas (IoT)</h2> 
+<ul> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/iot/home?region=eu-west-1" target="_blank">IoT Core</a>: Gestión de Internet de las Cosas y conexión con el ecosistema de AWS. [<a href="https://youtu.be/WAp6FHbhYCk" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/iot-1-click/?p=tile" target="_blank">IoT 1 click</a>: Permite a dispositivos sencillos activar funciones de AWS Lambda que pueden ejecutar una acción [<a href="https://youtu.be/vjNYKjthwcM" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/iot-device-management/" target="_blank">IoT Device Management</a>: Incorpore, organice, monitorice y administre de manera remota dispositivos conectados a escala [<a href="https://youtu.be/wCefhTWtSD4" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/iot-device-defender/?nc2=h_iot" target="_blank">IoT Device Defender</a>: Servicio completamente administrado que lo ayuda a asegurar su flota de dispositivos de IoT. [<a href="https://youtu.be/CO2Tv1jwVd4" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/freertos/" target="_blank">FreeRTOS</a>: Sistema Operativo con funciones IoT para micro-controladores [<a href="https://youtu.be/aeP0A67eNEg" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/greengrass/home?region=eu-west-1" target="_blank">AWS Greengrass</a>: Es software que le permite ejecutar capacidades de <strong>informática local</strong>, mensajería, almacenamiento de datos en caché y sincronización para dispositivos conectados de manera segura para IoT. [<a href="https://youtu.be/1rLxPOxVJoQ" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Centro de contacto / Atención al cliente</h2> 
+<ul> 
+ <li><a href="https://console.aws.amazon.com/connect/home?region=eu-west-1" target="_blank">Amazon Connect</a>: Servicio de centro de contacto (centralita) basado en la nube con modalidad autoservicio que le permite a cualquier empresa ofrecer un mejor servicio al cliente con facilidad y a un costo menor. [<a href="https://youtu.be/yT4DfaOxngI" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/ses/home?region=eu-west-1" target="_blank">Simple Email Service</a>: Plataforma de envío y recepción de emails super-escalable.[<a href="https://youtu.be/EKnK54TAKWg" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/pinpoint/home?region=eu-west-1" target="_blank">Pinpoint</a> Facilita el envío de mensajes a usuarios directamente desde su aplicación o servicio de backend, así como ejecutar campañas focalizadas para mejorar la interacción de los usuarios.[<a href="https://youtu.be/sdyBfHmLztE" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Desarrollo de juegos</h2> 
+<ul> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/gamelift/home?region=eu-west-1" target="_blank">Amazon GameLift</a>: Servicio administrado para implementar, utilizar y escalar servidores de videojuegos dedicados para videojuegos multi-jugador basados en sesiones. [<a href="https://youtu.be/zqc9TvLoBE4" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/lumberyard/" target="_blank">Amazon Lumberyard</a>: Es un motor de videojuegos AAA gratuito con un profundo nivel de integración con AWS y Twitch. Puedes dercargar gratis la aplicación para Windows [<a href="https://youtu.be/EdU1s1FGTDY" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://developer.amazon.com/gameon" target="_blank">Amazon GameOn</a>: Es un set deAPI para desarrolladores de juegos que permite tener a tus jugadores más entretenidos o conectado con el comercio electrónico de amazon para que los jugadores ganen premios. [<a href="https://www.youtube.com/watch?v=HBR0lQSoA54" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Servicios móviles</h2> 
+<ul> 
+ <li><a href="https://console.aws.amazon.com/mobilehub/home?region=eu-west-1" target="_blank">Mobile Hub</a>: Simplifica el proceso de construir, probar y monitorizar aplicaciones móviles que usan servicios de AWS. [<a href="https://youtu.be/MgpGROhgO8w" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/devicefarm/home?region=eu-west-1" target="_blank">Device Farm</a>: Mejore la calidad de las aplicaciones iOS, Android y web probándolas en dispositivos móviles reales en la nube de AWS. [<a href="https://youtu.be/21oIarLiAKU" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://console.aws.amazon.com/mobileanalytics/home?region=eu-west-1" target="_blank">Mobile Analytics</a>: Recopile, visualice y exporte análisis de la aplicación. [<a href="https://youtu.be/U84syIQb56k" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/appsync/" target="_blank">AppSync</a>: Crea aplicaciones guiadas por datos con capacidades en tiempo real y sin conexión. [<a href="https://www.twitch.tv/videos/206957826" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>AR / VR Realidad Aumentada / Realidad Virtual</h2> 
+<ul> 
+ <li><a href="https://aws.amazon.com/es/sumerian/" target="_blank">Sumerian</a>: Crear experiencias tridimensionales, de VR y AR. [<a href="https://youtu.be/UxMmxBe-Bls" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>Integración de aplicaciones</h2> 
+<ul> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/states/home?region=eu-west-1" target="_blank">Step Functions</a>: Cree aplicaciones distribuidas con flujos de trabajo visuales. [<a href="https://youtu.be/Dh7h3lkpeP4" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://aws.amazon.com/es/amazon-mq/" target="_blank">MQ</a>: Servicio de agente de mensajes administrado para Apache ActiveMQ [<a href="https://youtu.be/dCucC1SKkvI" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/sqs/home?region=eu-west-1" target="_blank">Simple Queue Service</a>: Colas de mensajes completamente administradas para micro-servicios, sistemas distribuidos y aplicaciones sin servidor. [<a href="https://youtu.be/XrX7rb6M3jw" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/sns/home?region=eu-west-1" target="_blank">Simple Notification Service</a>: Notificaciones móviles y mensajes de publicación/suscripción para micro-servicios, sistemas distribuidos y aplicaciones sin servidor. [<a href="https://youtu.be/u5j1U3qFXDY" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/swf/home?region=eu-west-1" target="_blank">SWF</a>:&nbsp;Ayuda a los desarrolladores a diseñar, ejecutar y escalar trabajos de fondo que siguen pasos paralelos o secuenciales. [<a href="https://youtu.be/Z_dvXy4AVEE" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Productividad Empresarial</h2> 
+<ul> 
+ <li><a href="https://aws.amazon.com/es/alexaforbusiness/" target="_blank">Alexa para negocios:</a> El "SIRI" de Amazon se llama Alexa y ahora está especializado para ayuda en el trabajo: [<a href="https://youtu.be/ViB3XhsTLuo" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/zocalo/home?region=eu-west-1" target="_blank">WorkDocs</a>: Servicio empresarial seguro de almacenamiento y uso compartido totalmente administrado con controles administrativos estrictos y funciones de comentarios que mejoran la productividad de los usuarios, tipo dropbox. [<a href="https://youtu.be/8ETrqmbhnLw" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/workmail/home?region=eu-west-1" target="_blank">WorkMail</a>: Servicio de email y calendario empresarial tipo webmail, seguro y administrado que soporta las aplicaciones clientes de email para dispositivos móviles y de escritorio existentes. pop3 y smtp. [<a href="https://youtu.be/A6iST0dAaqo" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://chime.aws.amazon.com/" target="_blank">Amazon Chime</a>: VideoConferencia de amazon, alternativa a Skype. [<a href="https://youtu.be/Bj2I1prPVZM" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<h2>&nbsp;Escritorio y transmisión de aplicaciones</h2> 
+<ul> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/workspaces/home?region=eu-west-1" target="_blank">WorkSpaces</a>: Solución de escritorio virtual (Windows 7, Windows 10 o Amazon Linux 2) como servicio (DaaS) segura y completamente administrada que se ejecuta en AWS. [<a href="https://youtu.be/SsXDDqlItTY" target="_blank">VIDEO</a>]</li> 
+ <li><a href="https://eu-west-1.console.aws.amazon.com/appstream2/home?region=eu-west-1" target="_blank">AppStream 2.0</a>: Permite enviar las aplicaciones de Windows a cualquier dispositivo. [<a href="https://youtu.be/qAFlv1m3MX0" target="_blank">VIDEO</a>]</li> 
+</ul> 
+<p><br></p> 
+<p><strong>NOTA</strong>: Recuerda <strong>compartir</strong> esta publicación, si ves algún servicio mal explicado o nuevo que no esté en este documento, házmelo saber...</p> 
+<h2>Links de interés:</h2> 
+<p><a href="https://speakerdeck.com/jfaerman/re-cap-2017-aws-meetup-es" target="_blank">Presentación en Español de Novedades AWS 2017</a></p> 
+<p><a href="https://aws.amazon.com/es/summits/madrid2018/?sc_icampaign=event_aws-summit-madrid-2018_sitemerch&amp;sc_ichannel=ha&amp;sc_icontent=awssm-553&amp;sc_iplace=hero&amp;trk=ha_awssm-553-aws-summit-madrid-2018_sitemerch&amp;trkCampaign=aws-summit-madrid-2018" target="_blank">AWS Summit MADRID 2018﻿</a></p> 
+<p><a href="https://aws.amazon.com/es/blogs/database/category/database/amazon-aurora/" target="_blank">AWS DataBase Blog</a></p> 
+<p>Grupo de usuarios en Bilbao <a href="http://bilbaws.com" target="_blank">bilbaws.com</a></p></div>
+</body>
+</html>

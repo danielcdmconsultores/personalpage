@@ -1,0 +1,203 @@
+<html>
+<head>
+  <title>La gestión de Identidad de AWS (IAM)</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <img src="https://media.licdn.com/media/gcrc/dms/image/C4D12AQHu8Xuw2hKpHA/article-cover_image-shrink_720_1280/0?e=1546473600&v=beta&t=3txrz_dlvhjOBd1FYJd_kiH3MgPA3yVGwHKULzfb2uY" alt="Gracias a cloudcheckr.com" title="Gracias a cloudcheckr.com" />
+    <h1><a href="https://www.linkedin.com/pulse/la-gesti%C3%B3n-de-identidad-aws-iam-daniel-pe%C3%B1a-silva">La gestión de Identidad de AWS (IAM)</a></h1>
+    <p class="created">Created on 2017-07-28 06:56</p>
+    <p class="published">Published on 2017-07-31 07:48</p>
+  <div><blockquote>
+  IAM es una poderosa herramienta para la delegación de permisos, asegurar la información, y el acceso de usuarios y sesiones de auditoría sobre el ecosistema de AWS. 
+</blockquote> 
+<p>Es imprescindible un amplio conocimiento de IAM (Identity and Access Management) para el despliegue seguro en la nube, ya sea que esté comenzando con Amazon Web Services (AWS) o sea un veterano con varias implementaciones complejas de AWS. Esta guía proporciona a los profesionales de AWS una descripción detallada del servicio de Amazon IAM, con especial atención a las políticas y las mejores prácticas para la implementación eficaz y segura en la nube.</p> 
+<p>IAM es, sin lugar a dudas, el servicio más crucial en la tecnología base de AWS. A pesar de no estar acostumbrado a la provisión de nuevos componentes en la nube pública (instancias del servidor virtual, bases de datos, almacenamiento o redes de cualquier tipo), debe conocer los pormenores de IAM.</p> 
+<p>Incluso si su empresa sólo utiliza AWS para descargar datos a S3 o glaciar como una solución de recuperación de desastres de copia de seguridad, debe aplicar las mejores prácticas de Amazon para IAM con el fin de asegurar su inversión y protegerlo de las amenazas externas e internas. Como sabrá, IAM se utiliza para configurar los usuarios y grupos, darles acceso a través de roles y políticas, y administrar sus credenciales (contraseñas o claves de acceso).</p> 
+<p>Además, en IAM se puede configurar la autenticación federada, con el fin de utilizar otras fuentes de autenticación como una base de datos para leer los datos del usuario (por ejemplo, en las instalaciones de su Directorio Activo o LDAP).</p> 
+<p>Puede acceder a IAM con su navegador ingresando en la Consola de administración de Amazon o puede configurar los ajustes de IAM con el AWS Command Line Interface desde el entorno de terminal en su sistema operativo, y también con el lenguaje de programación de su elección utilizando AWS SDK o las llamadas de la API HTTP (Estas solicitudes tienen que ser firmados digital-mente con credenciales de usuarios).</p> 
+<p>Al iniciar sesión en IAM a través de la consola, un panel de control nos deja una visión general con el número total de usuarios, grupos, roles, políticas y proveedores de identidad. A partir de esta página de inicio, puede personalizar el enlace de conexión para su entorno de AWS, así como una revisión de la lista de verificación de seguridad de estado IAM que es un recordatorio para habilitar la autenticación de <strong>múltiples factores</strong>, organizar a los usuarios en grupos, poner en práctica la <strong>política de contraseñas</strong> y r<strong>otar las claves de acceso</strong>.</p> 
+<p>La cuenta que se crea al registrarse en AWS es su cuenta RAIZ. Es altamente recomendable que proteja esta cuenta y lo utilice para acceder a los servicios de AWS, ya que cuenta raíz tiene acceso sin restricciones a todos los recursos en su entorno. Por esta razón, es necesario crear otras cuentas, y darles permisos específicos.</p> 
+<p>Cuando se crea un nuevo usuario, se decidirá si el usuario tendrá AWS Management Console y/o el acceso mediante programación.</p> 
+<p>La primera opción permite al usuario acceder a la consola a través de un navegador web (y requeriría la generación de una contraseña de usuario también), mientras que el acceso mediante programación le permite generar un par de claves (una llave de acceso y una clave de acceso secreta), que puede ser usado para crear llamadas a la API que utilizan AWS SDK o configurar AWS CLI.</p> 
+<p>Cada par de claves es único, debe mantenerse en lugar seguro, y nunca almacenar en cualquier servicio AWS directamente (codificado en instancias de EC2 o almacenados en tablas RDS / DynamoDB).</p> 
+<p>Cuando se agrega un usuario a un grupo en particular, el usuario <strong>hereda</strong> todas las políticas asignadas a ese grupo. Amazon es un firme defensor de la regla por defecto de “menor privilegio”para los usuarios y los grupos. Si asigna acceso a la consola a un usuario, sin asociar políticas directamente a ese usuario o su grupo, el usuario será capaz de iniciar sesión en la consola de administración de AWS, <strong>y nada más.</strong></p> 
+<p>Puede adjuntar, políticas predefinidas IAM que se organiza en base a los servicios de AWS, o se puede adjuntar una política personalizada que ha creado para satisfacer sus necesidades.</p> 
+<p>En esencia, las políticas de IAM son archivos de texto JSON. Estas políticas consisten en uno o más estados, y cada declaración, a su vez, describe un conjunto de permisos. Dentro de un solo estado, hay tres piezas necesarias:</p> 
+<p>• <strong>Efecto <em>/ “Effect”</em></strong>: Permitir o Negar sólo valores, lo que significa que la política le daría acceso a la entidad adherida o negarlacompletamente.</p> 
+<p>• <strong>Acción <em>/ “Action”</em></strong>: La acción del servicio de AWS a ser permitido o denegado. Cada servicio AWS tiene su propio conjunto de acciones. Por ejemplo, si se va a permitir a un usuario controlar las instancias de EC2, tal vez le gustaría permitir sólo el usuario para iniciar y detener las instancias, pero no crear otros nuevos. O con los buckets de S3, es posible que desee permitir al usuario ver y descargar los archivos, pero no cargar otros nuevos. Se pueden definir múltiples comportamiento en virtud de este bloque, sin embargo tienen que estar atado a un mismo servicio.</p> 
+<p>• <strong>Recurso <em>/ “Resource”</em></strong>: En donde se aplica efecto y acción. Por ejemplo, le gustaría permitir acceso completo al servicio S3, pero sólo para los buckets específicos. En ese caso, se debe definir sus buckets S3 en el Recurso y bloquear dentro de una declaración de política.</p> 
+<p>Vamos a revisar una política de ejemplo, que permite al usuario acceso completo a todos los buckets S3:</p> 
+<pre spellcheck="false">{
+&nbsp; &nbsp; <span class="hljs-attr">"Version"</span>: <span class="hljs-string">"2012-10-17"</span>,
+&nbsp; &nbsp; <span class="hljs-attr">"Statement"</span>: [
+&nbsp; &nbsp; &nbsp; &nbsp; {
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="hljs-attr">"Effect"</span>: <span class="hljs-string">"Allow"</span>,
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="hljs-attr">"Action"</span>: <span class="hljs-string">"s3:*"</span>,
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="hljs-attr">"Resource"</span>: <span class="hljs-string">"*"</span>
+&nbsp; &nbsp; &nbsp; &nbsp; }
+&nbsp; &nbsp; ]
+}
+
+</pre> 
+<p>Por encima de la declaración de la política real "Statment", es necesario definir la Versión del elemento, (en este ejemplo, 17/10/2017). Esta es la versión actual del lenguaje de la política y debe utilizar este número de versión en todas las políticas.</p> 
+<p>2008-10-17. Esta es una versión anterior del lenguaje de la política. Puede que vea esta versión en políticas ya existentes. No utilice esta versión en ninguna política nueva ni en las políticas ya existentes que actualice.</p> 
+<p>Si no incluye un elemento&nbsp;Version, el sistema toma de forma predeterminada el valor&nbsp;2008-10-17. Sin embargo, es conveniente incluir siempre un elemento&nbsp;Version&nbsp;y establecerlo en&nbsp;2012-10-17.</p> 
+<p>El asterisco (*), como en la sintaxis glob, se utiliza para reemplazar todos los valores admitidos. En esta política, significa que va a permitir todas las acciones en todos los buckets S3 creados bajo su cuenta.</p> 
+<p>Si desea especificar sólo algunos buckets S3 en su cuenta de AWS o incluso carpetas en esos buckets S3, es necesario utilizar el Nombre del recurso AWS <strong>(Formato de ARN)</strong>.</p> 
+<p>ARNs Es la forma única de identificar los recursos de AWS y se definen como:</p> 
+<pre spellcheck="false">arn:partition:service:region:account:resource
+</pre> 
+<p><strong>• arn</strong> es obligatorio en el comienzo de la definición.</p> 
+<p><strong>• partition</strong> se usa para definir una partición donde se encuentra el recurso. En la mayoría de los casos, usted sólo tiene que poner "aws" aquí, pero a veces puede que tenga que cambiar la partición (por ejemplo, si va a implementar recursos en particiones China o Gobierno de los EE.UU.).</p> 
+<p><strong>• service y region</strong> bajo el cual está la organización de sus recursos.</p> 
+<p><strong>• account</strong> sólo se utiliza si usted está tratando de llegar a un recurso en una de sus cuentas cruzadas. Por ejemplo, si usted está escribiendo una política que permitirá a los usuarios de desarrollo de su cuenta de AWS, leer archivos de un depósito de S3 atado a una cuenta de producción.</p> 
+<p><strong>• resource</strong> en realidad es el recurso que está tratando de alcanzar. Con S3 sería el nombre de un bucket o carpetas dentro de un bucket.</p> 
+<p>Por ejemplo, un ARN para acceder a todo en el ejemplo bajo la carpeta MyBucket se define como sigue: ARNs también permite los comodines, por lo que si desea permitir a los usuarios acceder a toda prueba buckets S3, se puede utilizar:</p> 
+<pre spellcheck="false"><span class="hljs-symbol">arn:aws:</span>s3::<span class="hljs-symbol">:MyBucket/test/*</span>
+</pre> 
+<p>ARN también soporta comodines, así que si quiere permitir a todos los usuarios acceso a todos los S3 buckets test, debes usar esta definición de arn:</p> 
+<pre spellcheck="false">arn:aws:s3:::test* 
+</pre> 
+<p>La definición de la Región sólo es necesario si usted está apuntando a un servicio basado en la región (por ejemplo, usted está permitiendo el acceso a las instancias de EC2 dentro de una región específica).</p> 
+<p>Una vez que haya terminado de escribir la política IAM <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html" target="_blank">compruebe con el uso del validador de política IAM</a> para ver si hay errores de sintaxis. Si todo está en orden, fije la política a una entidad (usuario, grupo o un Rol) para comenzar a usar el servicio con los permisos necesarios.</p> 
+<p><strong>Roles de IAM </strong></p> 
+<p>Además de usuarios y grupos, las políticas también se pueden unir a Roles , que normalmente se utilizan cuando se desea asignar un permiso para un servicio AWS, o de varias cuentas de acceso o acceso a través de un proveedor de identidad.</p> 
+<p>Puesto que no hay proceso de conexión real con los Roles, se generan dinámicamente unos pares de claves mantenidas por AWS, lo que no hay riesgo para la seguridad cuando se utiliza roles.</p> 
+<p>El escenario más común donde se utilizaría Roles es con instancias de EC2. Estas instancias de EC2 pueden tener sólo un Rol, pero se puede adjuntar varias políticas para un Rol EC2.</p> 
+<p>Con un Rol adjuntado a un EC2, puede cambiar la interacción de una instancia EC2 con otros servicios de AWS sobre la marcha a través de políticas vinculadas a la función en sí.</p> 
+<p><strong>Federación de la identificación</strong></p> 
+<p>Si ya dispone de un servicio de directorio en su entorno local, se puede usar en la nube de Amazon, así, con la ayuda de proveedores de federación de identidades . Sus usuarios federados van a utilizar sus credenciales actuales y permisos en la nube de AWS</p> 
+<p>AWS es compatible con SAML 2.0 (necesario para LDAP o Active Directory) y OpenID Connect (PeDIP) como proveedores de identidad, lo que significa que también puede autenticar a los usuarios de Google o Facebook.</p> 
+<p><strong>Buenas prácticas para IAM</strong></p> 
+<p>El mal uso de IAM puede dañar seriamente su infraestructura en la nube, así que asegúrese de seguir las mejores prácticas de IAM lo mejor que pueda.</p> 
+<p>• Siempre hay que asignar permisos usando Roles de mínimo privilegio. Siempre que se crea una nueva política o modificar una existente, asegúrese de que permite menos permisos para una entidad. Incluso si esto significa que va a tener que ir y venir a la medida necesaria y probar el acceso a los derechos, no dar permisos superiores a los realmente necesarios. Incluso si el entorno de AWS es mantenido por un grupo de ingenieros de alto nivel de TI, no todos ellos necesitan tener acceso de administrador.</p> 
+<p>• Utilice Roles lo más que pueda. Nunca almacenar las credenciales en instancias de EC2, y siempre utilizar Roles en lugar de pares de claves. Incluso si sus desarrolladores o administradores de sistemas necesitan acceso a la API, es inteligente para establecer un bastión de acogida EC2, con Roles requeridos EC2 y auditar el acceso.</p> 
+<p>• Siempre utilice contraseñas complejas. Implementar una política de contraseñas complejas para los usuarios de IAM, y utilizar el mismo enfoque para todas las contraseñas que defina en su nube de AWS. Trate de no usar las palabras de diccionario, incluir siempre letras minúsculas y mayúsculas, números y caracteres especiales, y mantener largas sus contraseñas.</p> 
+<p>• Rote credenciales regularmente. Si necesita proporcionar acceso con llave, o si tiene varios usuarios que utilizan la consola de administración de AWS, rotar todas las credenciales de forma regular. Obligar a los usuarios a cambiar sus datos de acceso sensibles cada par de meses, y siempre desactivar credenciales caducadas.</p> 
+<p>La cuenta RAIZ es la que sólo debería ser utilizado al registrarte y delegar el acceso por primera vez. El acceso a la cuenta de RAIZ debe mantenerse seguro y protegido con autenticación de múltiples factores, que deben ser consideradas para todas las cuentas privilegiadas (con acceso a servicios de producción, por ejemplo). No crear claves de acceso para una cuenta raíz, configurar otra cuenta en su lugar.</p> 
+<p>Supervisar el uso de IAM. Hay varios servicios de AWS que le pueden ayudar con el control de sus usuarios de IAM y lo que hacen cuando tienen acceso a la infraestructura de nube. Tan pronto como sea posible, Configure <strong>AWS CloudTrail</strong> y <strong>AWS Config</strong> .</p> 
+<p><strong>CloudTrail</strong> registrará todas las llamadas a la API AWS atadas a su cuenta, y los almacena dentro de un contenedor de S3.</p> 
+<p><strong>AWS Config</strong> sirve como registro cronológico de todos los cambios de configuración en el entorno de AWS.</p> 
+<p>También es inteligente configurar alarmas personalizadas de AWS CloudWatch para recibir notificaciones sobre los cambios y las métricas que defina. Además, las herramientas de terceros se pueden aprovechar para auditar sus permisos de IAM y las acciones del usuario.</p> 
+<p>Las mejores prácticas para el IAM no es la única cosa que hay que hacer para proteger el entorno de AWS, pero es un buen punto de partida.</p> 
+<p>Aunque nunca se puede estar protegido 100% en el entorno de TI dinámico de hoy, la adopción de herramientas y las mejores prácticas para implementar y hacer cumplir los controles de seguridad pueden garantizar la infraestructura de la nube y que siga siendo seguro.</p> 
+<a class="embedded" href="https://www.youtube.com/watch?v=Ul6FW4UANGc">https://www.youtube.com/watch?v=Ul6FW4UANGc</a> 
+<p>ver otra documentación del IAM :</p> 
+<p><a href="https://aws.amazon.com/es/blogs/security/the-top-20-aws-iam-documentation-pages-so-far-in-2017/" target="_blank">https://aws.amazon.com/es/blogs/security/the-top-20-aws-iam-documentation-pages-so-far-in-2017/</a></p></div>
+</body>
+</html>

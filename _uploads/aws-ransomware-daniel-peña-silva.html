@@ -1,0 +1,168 @@
+<html>
+<head>
+  <title>AWS & RANSOMWARE</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <img src="https://media.licdn.com/media/gcrc/dms/image/C4D12AQE80aEcgV3FFA/article-cover_image-shrink_423_752/0?e=1546473600&v=beta&t=DCXWWDPPqy4mk5YTGIp20rzqdqb2cCUhCpEkcjGvczw" alt="" title="" />
+    <h1><a href="https://www.linkedin.com/pulse/aws-ransomware-daniel-pe%C3%B1a-silva">AWS & RANSOMWARE</a></h1>
+    <p class="created">Created on 2017-05-13 09:47</p>
+    <p class="published">Published on 2017-05-14 09:19</p>
+  <div><p>La nube pública como AWS no está libre del Ransomware, porque el error comienza con una <strong>acción humana</strong>.</p> 
+<p>En las últimas horas hemos tenido eco del <strong>ataque masivo de encriptación</strong> de información a nivel mundial y <a href="https://www.ccn-cert.cni.es/seguridad-al-dia/comunicados-ccn-cert/4464-ataque-masivo-de-ransomware-que-afecta-a-un-elevado-numero-de-organizaciones-espanolas.html" target="_blank">especialmente en España</a>, y esto me ha hecho pensar en cuánto es más seguro AWS que una computación local (on-premise), puesto que al final lo virtual, la nube en algún lado estará ¿verdad?</p> 
+<p>Empecemos por explicar lo que es el modelo de <strong>responsabilidad compartida de AWS</strong> (<a href="https://aws.amazon.com/es/compliance/shared-responsibility-model" target="_blank">https://aws.amazon.com/es/compliance/shared-responsibility-model</a>) donde explica que ellos cuidan de unas cosas pero tú como DevOps debes de ocuparte de otras, que no es poco.</p> 
+<p>Muchas veces pienso en AWS como en una Internet paralela (internet2), como una plataforma mundial y distribuida donde sus servicios básicos están monitorizados y vigilados (conectividad, infraestructura, almacenamiento, etc..), otros alquilados por horas o ejecución y por último algunos de sus servicios son Gestionados o administrados por AWS: Bases de datos (RDS), Escritorios en la nube (Workspace), Programación sin servidores (Lambda), y creciendo cada mes en nuevos servicios....</p> 
+<p>Esto te da una "capa" de seguridad y tranquilidad extra, <strong>pero no suficiente</strong>, como responsabilidad compartida en aquellos servicios no administrados, nos debemos de preocupar por realizar frecuentemente backups, snapshots, actualizaciones del sistema operativo (Windows y Linux), actualizaciones de seguridad de tus aplicaciones, antivirus, etc...</p> 
+<p>En este punto, déjeme acentuar <strong>la importancia de la copia de seguridad</strong> y añado más, la restauración, porque todos sabemos como hacer copias pero ¿quién de nosotros las restaura, las prueba y las valida como correctas? Yo no dudo en probarlas como medida preventiva. Una de las cosas que más me gusta de AWS es la facilidad para crear réplicas y luego destruirlas a un coste y tiempo realmente eficiente: Crear una máquina EC2, restauras, re-configuras (cambio DNS, etc), validas la copia y la destruyes.</p> 
+<p>Siempre que se pueda, seleccione <strong>servicios gestionados o administrados por AWS</strong>, pues delega la instalación y monitoreo de esos servicios a AWS donde cuentan con expertos las 24 horas del día. Un ejemplo claro es una base de datos como puede ser MariaDB o MsSQL, que además de usar Multi A-Z (varias zonas de disponibilidad dentro de la región que use), puedes seleccionar un "marco de tiempo" para las copias y las actualizaciones menores del motor para los de sistemas de AWS. (ver Servicios de AWS <a href="https://youtu.be/mZ5H8sn_2ZI" target="_blank">https://youtu.be/mZ5H8sn_2ZI</a>)</p> 
+<p>Más vale prevenir que curar: <strong>La potencia de </strong><a href="https://aws.amazon.com/es/cloudwatch/" target="_blank"><strong>CloudWatch</strong></a></p> 
+<p><strong>Amazon CloudWatch</strong> es un servicio de monitorización de todo lo que pasa en AWS e incluso de las aplicaciones que se ejecutan en AWS. Puede utilizar Amazon CloudWatch para recopilar y realizar el seguimiento de métricas y logs, establecer alarmas y reaccionar automáticamente a los cambios en sus recursos AWS.</p> 
+<p><strong>Amazon CloudWatch</strong> puede monitorizar recursos de AWS como, por ejemplo, instancias de Amazon EC2, tablas de Amazon DynamoDB e instancias de base de datos de Amazon RDS, así como métricas personalizadas generadas por las aplicaciones y los servicios, y los logs generados por las aplicaciones. Puede utilizar Amazon CloudWatch para obtener visibilidad para todo el sistema sobre la utilización de recursos, el desempeño de las aplicaciones y el estado de funcionamiento. Utiliza esta información para iniciar y mantener la ejecución de la aplicación sin problemas ante un ataque de ransomeware.</p> 
+<p>Recuerda, un síntoma de la ejecución de un proceso RANSOMWARE es que empieza a encriptar con el consiguiente consumo alto de CPU y acceso constantes a ficheros/disco.</p> 
+<blockquote>
+  ¿A qué esperas a crear una regla de CloudWatch de CPU y acceso al disco? 
+</blockquote> 
+<h3><strong>COMO PREVENCIÓN:</strong></h3> 
+<ul> 
+ <li>&nbsp;<strong>Comunique /&nbsp;Eduque&nbsp;y&nbsp;Comparta</strong>&nbsp;con su equipo, la ley básica de&nbsp;"Nunca<strong>&nbsp;</strong>se debe de ejecutar aplicaciones que pidan ejecutarse como administrador o de fuentes poco desconocida (emails, descarga de facturas pdf, enlaces a fuentes externas, etc).</li> 
+ <li>Mantener <strong>copias de seguridad periódicas</strong> de todos los datos importantes. Es necesario mantener dichas copias aisladas y sin conectividad con tus sistemas, evitando así el acceso desde equipos infectados. (buckets de S3 con versionado activado es una fantástica solución. (ya conozco clientes que les han encriptado las copias y se han dado cuenta varios días después.) Recuerda <strong>comprueba </strong>periódicamente las copias.</li> 
+ <li>Las <strong>EC2</strong> son máquinas virtuales elásticas y evitará en un alto porcentaje de casos la infección por ransomware, debido a las técnicas anti-debug y antivirtualización comúnmente presentes en este tipo de código dañino, se ha demostrado que en un entorno virtualizado su acción no llega a materializarse. Curiosamente se suele programar el MALWARE justamente para ejecutarse en máquinas físicas y saltarse las máquinas virtuales o con debug, aunque esto puede cambiar con el tiempo.</li> 
+ <li>Mantener el <strong>sistema actualizado</strong> con los últimos parches de seguridad (Windows Update y Linux), tanto para el sistema operativo como para el software que hubiere instalado. Una buena práctica es tener la máquina limpia y bien configurada con el OS mínimo, es decir, solo con los servicios que use. La <strong>AMI de Amazon</strong> de Linux reduce el número de paquetes no críticos que se instalan en la instancia, lo cual restringe la exposición a posibles amenazas a la seguridad. Recuerde hacerse una AMI suya (privada) para que pueda duplicar la instancia EC2 en producción sin problema.</li> 
+ <li>Saque partido a las <strong>VPC de Amazon</strong>, disponer de una correcta configuración de los cortafuegos (FIREWALLS) y las tablas de rutas. Es posible utiliza subredes privadas para las instancias que no quiera poner a disposición directa de Internet. Las instancias de una subred privada pueden obtener acceso a Internet sin exponer su dirección IP privada enrutando el tráfico a través de una gateway de NAT (traducción de direcciones de red) en una subred pública. Una VPC incluye características avanzadas de seguridad como grupos de seguridad y listas de control de acceso a la red que permiten filtrar el tráfico de entrada y de salida en la instancia y la subred. Además, también puede almacenar datos en Amazon S3 y restringir el acceso de forma que sea accesible únicamente a las instancias de su VPC.</li> 
+ <li>Disponer de sistemas <strong>anti-spam</strong> a nivel de correo electrónico y establecer un nivel de filtrado alto, reduciendo las posibilidades de infección a través de campañas masivas de ransomware por correo electrónico. Active Sender Policy Framework SPD en su DNS para la protección contra la falsificación de direcciones en el envío de correo electrónico. De esta forma identifica a los servidores de correo SMTP autorizados para el transporte de los mensajes a través de los registros de nombres de dominio (DNS). Muy recomendable usar<a href="https://aws.amazon.com/es/ses/details/" target="_blank"> Amazon SES</a> como servidor de correo electrónico empresarial escalable. <strong>Amazon SES</strong> aplica tecnologías internas de filtrado de contenidos, que exploran el contenido de los mensajes para detectar la presencia de spam y malware. En casos excepcionales, si se comprueba que una cuenta envía spam u otros emails de baja calidad, ésta puede ser objeto de suspensión o de otras acciones correctivas que AWS considere adecuadas. Si se detecta malware, Amazon SES impide que se envíen los emails.</li> 
+ <li>Establecer <strong>políticas de seguridad en el sistema</strong> para impedir la ejecución de ficheros desde directorios comúnmente utilizados por el ransomware (App Data, Local App Data, etc.). Herramientas como AppLocker, Cryptoprevent o CryptoLocker Prevention Kit permiten crear fácilmente dichas políticas en Windows.</li> 
+ <li>Establecer una defensa en profundidad empleando herramientas como <strong>EMET</strong>, una solución que permite mitigar exploits (incluidos 0-days). El Kit de herramientas de Experiencia de mitigación mejorada (EMET) es una utilidad que ayuda a prevenir que exploten vulnerabilidades de seguridad en el software. EMET lo logra mediante el uso de tecnologías de mitigación de seguridad. Estas tecnologías funcionan como obstáculos y protecciones especiales que el autor de un ataque debe superar para aprovechar las vulnerabilidades de seguridad del software ver: <a href="https://support.microsoft.com/es-es/help/2909257/emet-mitigations-guidelines" target="_blank">https://support.microsoft.com/es-es/help/2909257/emet-mitigations-guidelines</a></li> 
+ <li>No utilizar cuentas con <strong>privilegios de administrador, root o Cuenta principal IAM</strong>, reduciendo el potencial impacto de la acción de un ransomware. Lea las buenas prácticas de seguridad de AWS ver:(<a href="https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Best_Practices.pdf" target="_blank">https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Best_Practices.pdf</a>)</li> 
+ <li>Mantener <strong>listas de control de acceso</strong> para las unidades mapeadas en red. En caso de infección, el cifrado se producirá en todas las unidades de red mapeadas en el equipo víctima. Regulando los privilegios de escritura en red se mitigará parcialmente el impacto. (Evite todos permisos de todo o 777 lectura, escritura y ejecución)</li> 
+ <li>Se recomienda el empleo de<strong> bloqueadores de Javascript</strong> para el navegador, como por ejemplo "Privacy Manager", que impide la ejecución de todos aquellos scripts que puedan suponer un daño para nuestro equipo o en escritorios remotos RDP. De este modo reduciremos las opciones de infección desde la web (Web Exploit Kits) ver: <a href="https://www.genbeta.com/navegadores/privacy-manager-una-extension-para-chrome-que-mejora-el-control-sobre-la-privacidad" target="_blank">https://www.genbeta.com/navegadores/privacy-manager-una-extension-para-chrome-que-mejora-el-control-sobre-la-privacida</a>d)</li> 
+ <li>Mostrar <strong>extensiones</strong> en Windows para tipos de fichero conocidos, con el fin de identificar posibles archivos ejecutables que pudieren hacerse pasar por otro tipo de fichero.</li> 
+ <li>Adicionalmente, se recomienda la instalación de la herramienta <strong>"Anti Ransom"</strong>, que tratará de bloquear el proceso de cifrado de un ransomware (monitorizando "honey files"). Además, esta aplicación realizará un volcado de la memoria del código dañino en el momento de su ejecución, en el que con suerte se puede hallar la clave de cifrado que estuviera empleándose. ver: <a href="https://github.com/YJesus/AntiRansom/releases" target="_blank">https://github.com/YJesus/AntiRansom/releases</a></li> 
+</ul> 
+<h3><strong>SI HA SIDO INFECTADO:</strong></h3> 
+<ul> 
+ <li>Parar <strong>INMEDIATAMENTE</strong> la instancia o instancias afectadas.</li> 
+ <li>Bloquear y Aislar en su VPC el tráfico relacionado con dominios y servidores C2 mediante un IDS/IPS, evitando así la comunicación entre el código dañino y el servidor de mando y control.</li> 
+ <li>Si no lo tiene claro de quién o qué encripta, reconfigure las reglas de los firewalls y VPN para bloquear el tráfico. (puedes tener el script ya preparado para esta situación)</li> 
+ <li>Puede montar e iniciar otra instancia "limpia" y como segunda unidad de disco la encriptada para buscar, limpiar e incluso intentar reparar.</li> 
+ <li><strong>Restauración aislada</strong>.... en otra zona o región de AWS.</li> 
+ <li>El equipo de expertos de <a href="https://www.seguridad-profesional.com/cms2/rescue-pack/" target="_blank">seguridad-profesional.com</a> (donde colaboro), mayoristas del antivirus <a href="https://www.seguridad-profesional.com/cms2/dr-web-katana/" target="_blank">Dr. WEB</a>, disponen de un <a href="https://www.seguridad-profesional.com/cms2/rescue-pack/" target="_blank"><strong>KIT DE RESCATE</strong></a> que consiguen desencriptar el 50% de los RANSOMWARE. <a href="https://docs.google.com/document/d/1JvPrLgBKKojA3RyxjUO502wUX41bv4XXRyjz1ce1jvg/edit" target="_blank">¿Cómo lo hacen?</a></li> 
+</ul> 
+<p>Por favor, no dudes en contactar conmigo para ampliar este documento, o corregirlo.</p> 
+<p><strong><em>Daniel Peña Silva - AWS Solutions Architect - Associate</em></strong></p> 
+<p><strong><em>Organizador de: </em></strong><a href="https://www.meetup.com/es-ES/AWS-Bilbao/" target="_blank"><strong><em>https://www.meetup.com/es-ES/AWS-Bilbao/</em></strong></a></p></div>
+</body>
+</html>

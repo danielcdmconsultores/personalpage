@@ -1,0 +1,197 @@
+<html>
+<head>
+  <title>Cómo mitigar un posible DoS en AWS - Diario de un ataque.</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <h1><a href="https://www.linkedin.com/pulse/c%C3%B3mo-mitigar-un-posible-dos-en-aws-diario-de-ataque-pe%C3%B1a-silva">Cómo mitigar un posible DoS en AWS - Diario de un ataque.</a></h1>
+    <p class="created">Created on 2018-03-26 08:06</p>
+    <p class="published">Published on 2018-03-26 11:52</p>
+  <div><p><strong>Ha sido un domingo 25 de Marzo de 2018 calentito</strong>, aunque el tiempo no acompañara, incluido el cambio de horario en España. Recibí una llamada de SOCORRO de un buen conocido, que tras 48 horas de <strong>parada de servicio</strong>, no conseguía que su sistema WEB se levantara.</p> 
+<div class="slate-resizable-image-embed slate-image-embed__resize-right"> 
+ <img data-media-urn="urn:li:digitalmediaAsset:C4D12AQF5lMj-E3tYpw" src="https://media.licdn.com/dms/image/C4D12AQF5lMj-E3tYpw/article-inline_image-shrink_1500_2232/0?e=1546473600&amp;v=beta&amp;t=qWd4G8gGfowLADq6Wq0-550ZJr1EmUaGaA1bViNSymg"> 
+</div> 
+<p>Su aplicación hecha en #Drupal (Linux, Nginx, PHP, MySQL) alberga varias webs de países de una conocida ONG a nivel mundial y había sido migrada recientemente a Amazon Web Services. Pero ahora, me alertaba de un posible <strong>DoS</strong> y los síntomas es que se "<em>para</em>" la máquina. Ante esta situación, me pidió ayuda y como no, me remangué la camisa para ver qué ocurría. Teniendo en mente que hay que tener <strong>mucho cuidado</strong> con sistemas que no son tuyos, ni has tenido nada que ver en "el parto" del proyecto. Pero no se negarme a la ayuda, es como si encuentras un accidente de tráfico: detente y ayuda...</p> 
+<h2>En mi mente ya visualizaba el método: <strong>Analiza</strong>, <strong>Repasa, Prioriza </strong>y por último <strong>Actúa.</strong></h2> 
+<p><strong>Analiza:</strong> Qué está ocurriendo en el sistema, observa las máquinas, logs en las últimas horas. Revisa con detalle los logs. El poder del CloudWatch metrics, incluso en básico, da mucha información.</p> 
+<p><strong>Repasa:</strong> Qué otras acciones se han realizado en los últimos días y si han intervenido "colegas", qué han hecho exactamente. Ver el histórico de comandos en las máquinas Linux con <em>history</em></p> 
+<p><strong>Prioriza</strong>: ¿Qué es lo más importante para los usuarios de la aplicación? y ¿Para el cliente? Responde constantemente a estas preguntas y prioriza las acciones. En este caso, fue poner online la web y mitigar los ataques hasta estabilizar el servidor.</p> 
+<p><strong>Actúa</strong>: Pon mucho cuidado en lo que vas hacer, y ten una hoja en blanco o doc, para saber qué instrucción ejecutas cada vez y apúntala o <strong>[CTRL + V].</strong></p> 
+<p>Observé con calma el Monitor de CloudWatch (que en la opción básica te muestra mucha información de los últimos 15 días) y vi un comportamiento muy alto de uso CPU. La <strong>primera alarma,</strong> es que la instancia EC2 es de tipo T2. Comprobé que al consumir los créditos de CPU, se quedaba bloqueada.</p> 
+<p>(vista de la utilización de CPU)</p> 
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"> 
+ <img data-media-urn="urn:li:digitalmediaAsset:C4D12AQF6GyLzFosbGw" src="https://media.licdn.com/dms/image/C4D12AQF6GyLzFosbGw/article-inline_image-shrink_1000_1488/0?e=1546473600&amp;v=beta&amp;t=iX4eTHl2sghgwYSS2G7lo4qK5QQYhmMivf7ULSIshAM"> 
+</div> 
+<p>(comparándola con la vista de la utilización del crédito de CPU)</p> 
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"> 
+ <img data-media-urn="urn:li:digitalmediaAsset:C4D12AQExiBorhoP49A" src="https://media.licdn.com/dms/image/C4D12AQExiBorhoP49A/article-inline_image-shrink_1000_1488/0?e=1546473600&amp;v=beta&amp;t=0POHpBVirwWIE4b736jatoHjtNOKoC3Y-g9ZOfFu9fo"> 
+</div> 
+<blockquote>
+  La perdida de crédito de CPU en las instancias T2, hace que la instancia quede casi bloqueada. 
+</blockquote> 
+<p>Activamos el <strong>T2 UNLIMITED</strong> en la instancia en cuestión, para que<strong> no se bloqueara</strong> por falta de créditos , ya que la <strong>prioridad número uno mantener online la aplicación. </strong>Ver el siguiente enlace: </p> 
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-unlimited.html" target="_blank">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-unlimited.html</a></p> 
+<div class="slate-resizable-image-embed slate-image-embed__resize-left"> 
+ <img data-media-urn="urn:li:digitalmediaAsset:C4D12AQHAdAr766YJAA" src="https://media.licdn.com/dms/image/C4D12AQHAdAr766YJAA/article-inline_image-shrink_1000_1488/0?e=1546473600&amp;v=beta&amp;t=ItAU7flQFePwlF6tX3R9nRJzRxq7XeL6Lb-TCY_XeuE"> 
+</div> 
+<p><strong>¿Que son los créditos de las instancias T2?</strong> LEE INMEDIATAMENTE el siguiente enlace, si no sabes que son:</p> 
+<p> <a href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/t2-credits-baseline-concepts.html" target="_blank">https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/t2-credits-baseline-concepts.html</a></p> 
+<p><strong>Nota: </strong>Se puede activar el T2UNLIMITED sin parar la instancia.</p> 
+<p><br></p> 
+<p>Manos a la obra, ahora que <strong>NO </strong>se nos bloquea la máquina, por falta de créditos de CPU, decidí entrar en la instancia por <strong>SSH </strong>y mi primer comando fue el que me ayuda a ver que distribución tenemos entre manos:</p> 
+<pre spellcheck="false">cat /proc/<span class="hljs-keyword">version</span>
+
+</pre> 
+<p><strong><em>Linux version 3.16.0-5-amd64 (debian-kernel@lists.debian.org) (gcc version 4.8.4 (Debian 4.8.4-1) ) #1 SMP Debian 3.16.51-3+deb8u1 (2018-01-08)</em></strong></p> 
+<p><em></em>Reflexioné sobre lo que han intentado hacer otros usuarios (sysadmins) anteriores para mitigar el problema, y que iba a hacer yo que ellos no habían pensado (esto me llevó varios minutos)..............</p> 
+<pre spellcheck="false"><span class="hljs-comment">#Muestrame todos los comandos anteriroes con el usuario del login</span>
+<span class="hljs-built_in">history</span>
+<span class="hljs-comment"># Muetra todos los comandos del superuser (root)</span>
+sudo su
+<span class="hljs-built_in">history</span>
+
+</pre> 
+<p>Revisé el fichero <strong>log </strong>del servidor de aplicaciones NGINX, en tiempo real. </p> 
+<pre spellcheck="false"><span class="hljs-built_in">cd</span> /var/<span class="hljs-built_in">log</span>/nginx/
+
+tail <span class="hljs-_">-f</span> access.log
+</pre> 
+<p>Durante varios minutos, observé un montón de IPs forzando una consulta de php (scrolling constante), estas IP siempre hacen la misma consulta, <strong>¿la misma? que raro.......</strong></p> 
+<p>(ejemplo simulado, no real.)</p> 
+<div class="slate-resizable-image-embed slate-image-embed__resize-full-width"> 
+ <img data-media-urn="urn:li:digitalmediaAsset:C4D12AQGYdaYUQkxyvg" src="https://media.licdn.com/dms/image/C4D12AQGYdaYUQkxyvg/article-inline_image-shrink_1500_2232/0?e=1546473600&amp;v=beta&amp;t=FJ6YWjgx1z8jRqsoyateMAIC3yiEiApyqI7VP18fY0g"> 
+</div> 
+<p><strong>Comprobé el origen</strong> de las <strong>IP</strong> con <a href="http://iplocation.net " target="_blank">iplocation.net </a>y la <strong>sorpresa</strong> fue que TOD@S las ip son de <strong>China</strong>, pensé en el poder de IPTABLES y su configurador CSF ConfigServer Security &amp; Firewall (requiere perl por si lo quieres instalar). </p> 
+<pre spellcheck="false"><span class="hljs-comment"># reviso las entradas </span>
+sudo nano /etc/csf/csf.deny
+<span class="hljs-comment"># edito el configurador de CSF</span>
+sudo nano /etc/csf/csf.conf
+<span class="hljs-comment"># busco CC_DENY y remplazo para bloquear ips de Rusia y China</span>
+Añado la línea: CC_DENY=<span class="hljs-string">"RU,CN"</span>
+<span class="hljs-comment"># reiniciamos las reglas del CSF</span>
+sudo csf -r
+</pre> 
+<p>A partir de los anteriores comandos y reiniciar el IPTABLES, <strong>la CPU bajó al 5%. </strong>Solucionando el problema en gran medida, y estabilizando el servidor con lo cual cumplí el primer objetivo.</p> 
+<p>Por último, revisé el <strong>SECURITY GRUOPS</strong> y hay algunas recomendaciones de seguridad para mi colega como <strong>no tener</strong> el puerto 22 abierto a <strong>ALL</strong>, Instalar un Load Balancer, crear reglas para avisos de CLoudWatch, etc... y desactivar el <strong>T2 UNLIMITED</strong> pasados unos días una vez <strong>estabilizada </strong>la instancia. </p> 
+<p>Paso nota a los desarrolladores de la aplicación para que analicen el por qué #Drupal engancha tanta CPU en la consulta y por supuesto todas las acciones realizadas.<strong> ¡¡Esto es DevOps!!!</strong></p> 
+<p>Por último: <strong>DOCUMENTAR TODO LO REALIZADO</strong> y disfrutar el domingo en familia!!!!</p> 
+<blockquote>
+  ¿Se te ocurren otras recomendaciones? No te las calles y mejora el post........ 
+</blockquote> 
+<p><br></p></div>
+</body>
+</html>
