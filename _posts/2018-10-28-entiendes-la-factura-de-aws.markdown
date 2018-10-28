@@ -3,7 +3,6 @@ title: "¿Entiendes la factura de AWS?"
 date: 2018-10-28 11:14:00 +01:00
 ---
 
-
 La primera vez que me llegó una factura de Amazon Web Services, me recordó un poco a las facturas de operadores de telefonía, no la entiendes bien pero la pagas. El otro día una clienta me preguntó si le podía explicar bien, su factura, esto me hizo pensar que es más frecuente de lo que parece. Aquí una explicación, que espero ayude a otros clientes y usuarios de AWS.
 
 Para empezar las facturas están en DOLARES, ojo que en este caso te hace la conversión a EUROS con un total: 171,10 € 
